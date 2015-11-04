@@ -4,6 +4,7 @@
  @ Date：2015/5/12
  @ E-mail：442413729@qq.com
  @ Weibo:http://weibo.com/qdlaoxu
+ @ GitHub:https://github.com/waihaolaoxu
  @ Address:http://www.loveqiao.com/
 */
 !function(a) {
