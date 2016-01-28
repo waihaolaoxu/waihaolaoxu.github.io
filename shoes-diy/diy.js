@@ -17,7 +17,6 @@ function Diy(id){
 Diy.prototype={
 	init:function(){
 		_diy=this;
-		_diy.getBase();//获取基本款
 		_diy.bind();
 		_diy.ng();
 		_diy.resize();
@@ -47,30 +46,6 @@ Diy.prototype={
 				$('#opt').mCustomScrollbar('update');
 			},120)
 		});
-	},
-	getBase:function(){
-		/*$.ajax({
-			url:_diy.api+'Web/Online/GetBaseModelInfo',
-			data:{
-				baseModelId:_diy.id	
-			},
-			dataType:"jsonp",
-			type:'get',
-			success: function(d){
-				_diy.data_all=d;
-				var arr=[];
-				$.each(d.Pic,function(i,d){
-					if(d.Orientation==_diy.angle.cur){
-						
-						arr.push('<img src="'+d.Path.replace('xibuxiedu.dev.bodecn.com','7xqkfy.com1.z0.glb.clouddn.com')+'?v1" title="'+d.Name+'" style="z-index:'+d.Zindex+'">')	
-					}	
-				});
-				$('#showPic').html(arr.join(''))
-			},
-			error:function(){
-				alert('error')	
-			}	
-		});*/
 	},
 	ng:function(){
 		var module=angular.module('mod', []);
@@ -157,8 +132,8 @@ Diy.prototype={
 			}).mouseleave(function(){
 				setTimeout(function(){
 					$('#TipInfo').remove();
-					$(this).find('.Highlight').remove();	
-				},120)
+					$('.Highlight').remove();
+				},500)
 			});
 		}
 	},
