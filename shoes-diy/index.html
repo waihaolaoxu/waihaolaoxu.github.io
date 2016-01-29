@@ -80,7 +80,7 @@
   <div class="AreaC">
     <div id="showPic">
     	<!--舞台展示-->
-    	<img src="{{x.Path.replace('xibuxiedu.dev.bodecn.com','7xqkfy.com1.z0.glb.clouddn.com')+'?v1'}}" title="{{x.Name}}" style="z-index:{{x.Zindex}}" ng-repeat="x in base">
+    	<img ng-src="{{x.Path.replace('xibuxiedu.dev.bodecn.com','7xqkfy.com1.z0.glb.clouddn.com')+'?v1'}}" title="{{x.Name}}" style="z-index:{{x.Zindex}}" ng-repeat="x in base">
     	<div id="updataView" ng-click='updataView()' style="display:none"></div>
     </div>
     <ul class="subMenu">
