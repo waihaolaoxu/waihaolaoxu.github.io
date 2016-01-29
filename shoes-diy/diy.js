@@ -50,7 +50,17 @@ Diy.prototype={
 	updataView:function(){
 		_diy.data_cur=[];
 		if(_diy.data_all){
-			$.each(_diy.data_all.Pic,function(i,d){
+			$.each(_diy.data_all.AccPic,function(i,d){
+				if(d.Orientation==_diy.angle.cur){
+					_diy.data_cur.push(d)	
+				}	
+			});
+			$.each(_diy.data_all.FacePic,function(i,d){
+				if(d.Orientation==_diy.angle.cur){
+					_diy.data_cur.push(d)	
+				}	
+			});
+			$.each(_diy.data_all.HeelPic,function(i,d){
 				if(d.Orientation==_diy.angle.cur){
 					_diy.data_cur.push(d)	
 				}	
