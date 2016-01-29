@@ -47,41 +47,52 @@ Diy.prototype={
 			},120)
 		});
 	},
+	updataView:function(){
+		_diy.data_cur=[];
+		if(_diy.data_all){
+			$.each(_diy.data_all.Pic,function(i,d){
+				if(d.Orientation==_diy.angle.cur){
+					_diy.data_cur.push(d)	
+				}	
+			});
+		}
+		return _diy.data_cur;
+	},
 	ng:function(){
 		var module=angular.module('mod', []);
 		module.controller('ctrl_1', function($scope, $http) {
-			//更新视图
-			$scope.updataView=function(){
-				_diy.data_cur=[];
-				if(_diy.data_all){
-					$.each(_diy.data_all.Pic,function(i,d){
-						if(d.Orientation==_diy.angle.cur){
-							_diy.data_cur.push(d)	
-						}	
-					});
-					$scope.base=_diy.data_cur;
-				}
-			}
+			
 			//获取基本款
-			$.ajax({
-				url:_diy.api+'Web/Online/GetBaseModelInfo',
-				data:{
-					baseModelId:_diy.id	
-				},
-				dataType:"jsonp",
-				type:'get',
-				success: function(d){
-					_diy.data_all=d;//同步商品数据
-					$('#updataView').click();
-				},
-				error:function(){
-					alert('error')	
-				}	
+			$http.jsonp(_diy.api+'Web/Online/GetBaseModelInfo?baseModelId='+_diy.id+'&callback=JSON_CALLBACK').success(function(d){
+				_diy.data_all=d;//同步商品数据
+				$scope.base=_diy.updataView();	
 			});
+			
+			//获取鞋面数据
+			$http.jsonp(_diy.api+'Web/Online/GetMaterialsList?baseModelId='+_diy.id+'&type=1&callback=JSON_CALLBACK').success(function(d){
+				$scope.vamp=d;
+			});
+			
+			//获取鞋根数据
+			$http.jsonp(_diy.api+'Web/Online/GetMaterialsList?baseModelId='+_diy.id+'&type=2&callback=JSON_CALLBACK').success(function(d){
+				$scope.heel=d;
+			});
+			
+			//获取配饰数据
+			$http.jsonp(_diy.api+'Web/Online/GetMaterialsList?baseModelId='+_diy.id+'&type=3&callback=JSON_CALLBACK').success(function(d){
+				$scope.adorn=d;
+			});
+			
+			//颜色切换
+			$scope.selectColor=function(d){
+				alert(d)	
+			}
+
 			//重来
 			$scope.resets=function(){
 				location.reload();	
 			}
+			
 			//旋转
 			$scope.rotate=function(e){
 				if(e>0){//右转
@@ -89,9 +100,7 @@ Diy.prototype={
 				}else{//左转
 					_diy.angle.cur>1?_diy.angle.cur--:_diy.angle.cur=8;
 				}
-				setTimeout(function(){
-					$('#updataView').trigger('click');
-				},100)
+				$scope.base=_diy.updataView();
 			}
 			//全屏
 			$scope.fullScreen=function(){
@@ -146,9 +155,9 @@ Diy.prototype={
 		var arr=[],
 			data=(function(){
 				d=[];
-				$('#showPic img').each(function(i, e) {
-					d.push({imgurl:e.src,cn:e.title,zindex:$(e).css('z-index')})
-				});
+				$.each(_diy.data_cur,function(i, e) {
+					d.push({imgurl:e.Path,cn:e.Name,zindex:e.Zindex})
+				})
 				return d;
 			})().sort(sortNumber),
 			len=data.length;

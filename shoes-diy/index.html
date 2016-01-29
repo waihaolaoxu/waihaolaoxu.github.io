@@ -25,45 +25,45 @@
     <div id="opt" class="opt">
       <div class="cat">
         <h5>选择一种面料</h5>
-        <ul>
-          <li class="{{y.def==1?'cur':''}}" id="{{y.pid+'-'+x}}" ng-repeat="(x,y) in fvamp" ng-click="fvamp_select({pid:y.pid,id:x})">
-            <div><img src="{{y.img}}"></div>
-            <p ng-bind="y.name"></p>
-            <input type="radio" name="{{y.pid}}" ng-checked="{{y.def==1}}" disabled>
+        <ul class="tabTit">
+          <li ng-repeat="x in vamp">
+            <div><img src="{{x.Cover}}"></div>
+            <p ng-bind="x.Name"></p>
           </li>
         </ul>
-        <h5>选择一种面料颜色</h5>
-        <ul>
-          <li class="{{y.def==1?'cur':''}}" ng-repeat="(x,y) in cvamp">
-            <div><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" style="background:{{y.cval}}"></div>
-            <p ng-bind="y.name"></p>
-            <input type="radio" name="{{y.pid}}" ng-checked="{{y.def==1}}" disabled>
-          </li>
-        </ul>
+		<h5>选择一种面料颜色</h5>
+		<div class="tabLayer">
+			<ul ng-show="{{$index==0}}" ng-repeat="x in vamp">
+			  <li ng-repeat="x in x.Color" ng-click="selectColor(x.SamllPic)">
+				<div><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" style="background:{{x.ColorInfoRgb}}"></div>
+				<p ng-bind="x.ColorInfoName"></p>
+			  </li>
+			</ul>
+		</div>
       </div>
       <div class="cat hide">
         <h5>选择一种面料</h5>
-        <ul>
-          <li class="{{y.def==1?'cur':''}}" id="{{y.pid+'-'+x}}" ng-repeat="(x,y) in fheel" ng-click="fheel_select({pid:y.pid,id:x})">
-            <div><img src="{{y.img}}"></div>
-            <p ng-bind="y.name"></p>
-            <input type="radio" name="{{y.pid}}" ng-checked="{{y.def==1}}" disabled>
+        <ul class="tabTit">
+          <li ng-repeat="x in heel">
+            <div><img src="{{x.Cover}}"></div>
+            <p ng-bind="x.Name"></p>
           </li>
         </ul>
-        <h5>选择一种面料颜色</h5>
-        <ul>
-          <li ng-repeat="(x,y) in cheel">
-            <div><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" style="background:{{y.cval}}"></div>
-            <p ng-bind="y.name"></p>
-            <input type="radio" name="{{y.pid}}" ng-checked="{{y.def==1}}" disabled>
-          </li>
-        </ul>
+		<h5>选择一种面料颜色</h5>
+		<div class="tabLayer">
+			<ul ng-show="{{$index==0}}" ng-repeat="x in heel">
+			  <li ng-repeat="x in x.Color" ng-click="selectColor(x.SamllPic)">
+				<div><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" style="background:{{x.ColorInfoRgb}}"></div>
+				<p ng-bind="x.ColorInfoName"></p>
+			  </li>
+			</ul>
+		</div>
       </div>
       <div class="cat hide">
         <ul>
-          <li class="cur">
-            <div><img src="data/other/img3.jpg"></div>
-            <p>小花</p>
+          <li ng-repeat="x in adorn" ng-click="selectColor(x.ShoesAccPic)">
+            <div><img src="{{x.Cover}}"></div>
+            <p ng-bind="x.Name"></p>
           </li>
         </ul>
       </div>
