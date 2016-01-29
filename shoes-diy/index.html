@@ -27,7 +27,7 @@
         <h5>选择一种面料</h5>
         <ul class="tabTit">
           <li ng-repeat="x in vamp">
-            <div><img src="{{x.Cover}}"></div>
+            <div><img ng-src="{{x.Cover}}"></div>
             <p ng-bind="x.Name"></p>
           </li>
         </ul>
@@ -45,7 +45,7 @@
         <h5>选择一种面料</h5>
         <ul class="tabTit">
           <li ng-repeat="x in heel">
-            <div><img src="{{x.Cover}}"></div>
+            <div><img ng-src="{{x.Cover}}"></div>
             <p ng-bind="x.Name"></p>
           </li>
         </ul>
@@ -62,7 +62,7 @@
       <div class="cat hide">
         <ul>
           <li ng-repeat="x in adorn" ng-click="selectColor(x.ShoesAccPic)">
-            <div><img src="{{x.Cover}}"></div>
+            <div><img ng-src="{{x.Cover}}"></div>
             <p ng-bind="x.Name"></p>
           </li>
         </ul>
