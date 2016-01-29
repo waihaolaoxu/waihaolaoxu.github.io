@@ -47,7 +47,29 @@ Diy.prototype={
 			},120)
 		});
 	},
+	loading:function(n){//1：开启 0：关闭
+		if($('#loading').length<=0){
+			$('#showPic').append('<div id="loading"></div>')	
+		}
+		if(n){
+			$('#loading').show();	
+		}else{
+			$('#loading').hide();	
+		}
+	},
+	checkLoad:function(data){
+		var count=[];
+		$.each(data,function(i,d){
+			$('<img />').attr('src',d.Path.replace('xibuxiedu.dev.bodecn.com','7xqkfy.com1.z0.glb.clouddn.com')).bind('load',function(){
+				count.push(1);
+				if(count.length==_diy.data_cur.length){
+					_diy.loading(0)
+				}	
+			})	
+		})	
+	},
 	updataView:function(){
+		_diy.loading(1);
 		_diy.data_cur=[];
 		if(_diy.data_all){
 			$.each(_diy.data_all.AccPic,function(i,d){
@@ -66,6 +88,7 @@ Diy.prototype={
 				}	
 			});
 		}
+		_diy.checkLoad(_diy.data_cur);//检测图片加载完毕关闭loading
 		return _diy.data_cur;
 	},
 	ng:function(){
@@ -75,7 +98,7 @@ Diy.prototype={
 			//获取基本款
 			$http.jsonp(_diy.api+'Web/Online/GetBaseModelInfo?baseModelId='+_diy.id+'&callback=JSON_CALLBACK').success(function(d){
 				_diy.data_all=d;//同步商品数据
-				$scope.base=_diy.updataView();	
+				$scope.base=_diy.updataView();
 			});
 			
 			//获取鞋面数据
@@ -93,11 +116,44 @@ Diy.prototype={
 				$scope.adorn=d;
 			});
 			
-			//颜色切换
-			$scope.selectColor=function(d){
-				alert(d)	
+			//获取尺码数据
+			$http.jsonp(_diy.api+'Web/Online/GetModelSize?callback=JSON_CALLBACK').success(function(d){
+				$scope.size=d;
+			});
+			
+			//材质切换
+			$('.tabTit').on('click','li',function(){
+				$(this).addClass('cur').siblings().removeClass('cur');
+				$(this).children('input')[0].checked=true;
+				$(this).parents('.cat').find('.tabLayer ul').eq($(this).index()).siblings().addClass('ng-hide').end().removeClass('ng-hide');
+				$('#opt').mCustomScrollbar('update');	
+			});
+			
+			//颜色配饰切换
+			$('.tabLayer').on('click','li',function(){
+				$(this).addClass('cur').siblings().removeClass('cur');	
+				$(this).children('input')[0].checked=true;
+			})
+			$scope.selectColor=function(id,data){
+				switch(id){
+					case 'vamp':
+						_diy.data_all.FacePic=data;
+					break;
+					case 'heel':
+						_diy.data_all.HeelPic=data;
+					break;
+					case 'adorn':
+						_diy.data_all.AccPic=data;
+					break;	
+				}
+				$scope.base=_diy.updataView();
 			}
-
+			
+			//完成
+			$scope.save=function(){
+				alert($('#myform').serialize())	
+			}
+			
 			//重来
 			$scope.resets=function(){
 				location.reload();	
@@ -188,8 +244,6 @@ Diy.prototype={
 							rgba:[imgData[0 + _step],imgData[1 + _step],imgData[2 + _step],imgData[3 + _step]].join(),
 							imgurl:value.imgurl,
 							zindex:value.zindex,
-							//id:value.id,
-//							pt:value.pt,
 							cn:value.cn
 						};
 					arr.push(data);
