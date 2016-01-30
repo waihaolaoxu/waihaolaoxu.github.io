@@ -50,7 +50,7 @@ Diy.prototype={
 	},
 	loading:function(n){//1：开启 0：关闭
 		if($('#loading').length<=0){
-			$('#showPic').append('<div id="loading"></div>')	
+			$('body').append('<div id="loading"></div>')	
 		}
 		if(n){
 			$('#loading').show();	
@@ -153,6 +153,11 @@ Diy.prototype={
 			//完成
 			$scope.save=function(){
 				alert($('#myform').serialize())	
+				_diy.h5Canvas(function(e){
+					$.each(e,function(i,d){
+						window.open(d)	
+					})	
+				})
 			}
 			
 			//重来
@@ -191,6 +196,7 @@ Diy.prototype={
 	},
 	//HTML5图片合成
 	h5Canvas:function(callback){
+		_diy.loading(1);
 		var size=500;//定义合成图片尺寸
 		var data={
 			'0':[],
@@ -234,10 +240,10 @@ Diy.prototype={
 					ctx.drawImage(img,0,0,size,size);
 					count++;
 					if(count==len){
-						window.open(can.toDataURL('image/jpeg',5))
+						//window.open(can.toDataURL('image/jpeg',5))
 						imgs.push(can.toDataURL('image/jpeg',5));
 						if(imgs.length==8){
-							alert('合成完毕！');
+							_diy.loading(0);
 							if(typeof callback == 'function'){
 								callback(imgs);
 							}	
@@ -250,10 +256,6 @@ Diy.prototype={
 			draw();
 		});
 	},
-/*============================*
-		   可视化操作 
-*=============================*/
-
 	//绑定获取焦点
 	getCur:function(){
 		if(document.createElement('canvas').getContext){
