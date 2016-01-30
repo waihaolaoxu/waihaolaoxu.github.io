@@ -4,6 +4,7 @@
  @ Date：2016/01/18
  @ Blog:http://www.loveqiao.com/
 */
+//replace('xibuxiedu.dev.bodecn.com','7xqkfy.com1.z0.glb.clouddn.com')
 function Diy(id){
 	this.id=id;
 	this.data_all=null;//商品全部数据
@@ -60,7 +61,7 @@ Diy.prototype={
 	checkLoad:function(data){
 		var count=[];
 		$.each(data,function(i,d){
-			$('<img />').attr('src',d.Path.replace('xibuxiedu.dev.bodecn.com','7xqkfy.com1.z0.glb.clouddn.com')).bind('load',function(){
+			$('<img />').attr('src',d.Path).bind('load',function(){
 				count.push(1);
 				if(count.length==_diy.data_cur.length){
 					_diy.loading(0)
@@ -186,6 +187,67 @@ Diy.prototype={
 					}
 				})(document.documentElement);
 			}
+		});
+	},
+	//HTML5图片合成
+	h5Canvas:function(callback){
+		var size=500;//定义合成图片尺寸
+		var data={
+			'0':[],
+			'1':[],
+			'2':[],
+			'3':[],
+			'4':[],
+			'5':[],
+			'6':[],
+			'7':[]
+		};
+		$.each(_diy.data_all.FacePic,function(i,d){//鞋面
+			data[i].push(d);
+		});
+		$.each(_diy.data_all.HeelPic,function(i,d){//鞋跟
+			data[i].push(d);	
+		});
+		$.each(_diy.data_all.AccPic,function(i,d){//配饰
+			data[i].push(d);	
+		});
+		function sortNumber(a,b){
+			return a.Zindex-b.Zindex
+		}
+		
+		//合成操作
+		var imgs=[];
+		$.each(data,function(i,d){
+			d.sort(sortNumber)//数组排序层级从小到大
+			var can=document.createElement('canvas'),
+			ctx=can.getContext('2d');
+			can.width=size;
+			can.height=size;
+			ctx.fillStyle='#fff';
+			ctx.fillRect(0,0,size,size);
+			var count=0,len=d.length;
+			function draw(){
+				var img=new Image();
+				img.crossOrigin = 'Anonymous'; //解决跨域
+				img.src=d[count].Path;
+				img.onload=function(){
+					ctx.drawImage(img,0,0,size,size);
+					count++;
+					if(count==len){
+						window.open(can.toDataURL('image/jpeg',5))
+						imgs.push(can.toDataURL('image/jpeg',5));
+						if(imgs.length==8){
+							alert('合成完毕！');
+							if(typeof callback == 'function'){
+								callback(imgs);
+							}	
+						}
+					}else{
+						draw();//递归
+					}
+				}
+			}
+			draw();
 		});
 	},
 /*============================*
