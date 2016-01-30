@@ -186,9 +186,7 @@ Diy.prototype={
 					} else if(element.msRequestFullscreen) {
 						element.msRequestFullscreen();
 					}else{
-						luck.poptip({
-							con:'您的浏览器不支持全屏功能!'	
-						})	
+						alert('您的浏览器不支持全屏功能!')	
 					}
 				})(document.documentElement);
 			}
