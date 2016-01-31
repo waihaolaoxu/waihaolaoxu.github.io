@@ -5,8 +5,9 @@
  @ Blog:http://www.loveqiao.com/
 */
 //replace('xibuxiedu.dev.bodecn.com','7xqkfy.com1.z0.glb.clouddn.com')
-function Diy(id){
-	this.id=id;
+function Diy(opt){
+	this.id=opt.id;//基础款id
+	this.userId=opt.uid;//用户id
 	this.data_all=null;//商品全部数据
 	this.data_cur=null;//存储当前图片数据
 	this.api='http://xibuxiedu.dev.bodecn.com/';
@@ -152,11 +153,44 @@ Diy.prototype={
 			
 			//完成
 			$scope.save=function(){
-				alert($('#myform').serialize())	
+				var node=[
+							[$('[name=vamp]:checked').val(),'鞋面材质'],
+							[$('[name=vamp_color]:checked').val(),'鞋面颜色'],
+							[$('[name=heel]:checked').val(),'鞋跟材质'],
+							[$('[name=heel_color]:checked').val(),'鞋跟颜色'],
+							[$('[name=adorn]:checked').val(),'配饰'],
+							[$('[name=size]:checked').val(),'尺码'],
+						],flag=null;
+				$.each(node,function(i,d){
+					if(!d[0]){
+						alert(d[1]+'不能为空！');
+						flag=true;
+						return false
+					}	
+				});	
+				if(flag){return}
+				//alert(JSON.stringify($('#myform').serializeArray()))
+				//return
 				_diy.h5Canvas(function(e){
-					$.each(e,function(i,d){
-						window.open(d)	
-					})	
+					var data={
+						Name:_diy.data_all.Name,//名称
+						UserInfoId:_diy.userId,//用户id
+						SizeInfoId:node[5][0],//尺码id
+						FaceMaterial:{
+							MaterialId:node[0][0],//鞋面材料id
+							ColorId:node[1][0]//鞋面颜色id
+						},
+						HeelMaterial:{
+							MaterialId:node[2][0],//鞋跟材料id
+							ColorId:node[3][0]//鞋跟颜色id
+						},
+						AccMaterial:node[4][0],//配饰Id
+						BaseModelId:_diy.id,//基本模型id
+						BaseModelPic:e//图片
+					}	
+					$.post(_diy.api+'Web/Online/SavePosition',{data:JSON.stringify(data)},function(d){
+						alert(d.ReturnMsg);
+					},'json')	
 				})
 			}
 			
@@ -239,9 +273,10 @@ Diy.prototype={
 					count++;
 					if(count==len){
 						//window.open(can.toDataURL('image/jpeg',5))
-						imgs.push(can.toDataURL('image/jpeg',5));
+						imgs.push({Data:can.toDataURL('image/jpeg',5),Orientation:Number(i)+1});
 						if(imgs.length==8){
 							_diy.loading(0);
+							console.log(imgs)
 							if(typeof callback == 'function'){
 								callback(imgs);
 							}	

@@ -80,7 +80,7 @@
                 <ul>
                   <li ng-repeat='x in size' id="{{x.China}}">
                     <span ng-bind="x.China"></span>
-                    <input type="radio" name="size" value="{{x.China}}">
+                    <input type="radio" name="size" value="{{x.Id}}">
                   </li>
                 </ul>
             </div>
@@ -114,23 +114,8 @@
 <script src="plugin/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> 
 <script src="diy.js"></script> 
 <script>
-var diy=new Diy(3);
+var diy=new Diy({id:3,uid:1});//id:基础款id  uid：用户id
 diy.init();
-
-/*$.ajax({
-	url:'http://xibuxiedu.dev.bodecn.com/Web/Online/GetBaseModelInfo',
-	data:{
-		baseModelId:17	
-	},
-	dataType:"jsonp",
-	type:'get',
-	success: function(d){
-		alert(JSON.stringify(d))
-	},
-	error:function(){
-		alert('error')	
-	}	
-})
-*/</script>
+</script>
 </body>
 </html>
