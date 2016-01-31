@@ -189,7 +189,11 @@ Diy.prototype={
 						BaseModelPic:e//图片
 					}	
 					$.post(_diy.api+'Web/Online/SavePosition',{data:JSON.stringify(data)},function(d){
-						alert(d.ReturnMsg);
+						if(d.ReturnCode>0){
+							alert(d.ReturnMsg);
+						}else{
+							alert(d.ReturnMsg);	
+						}
 					},'json')	
 				})
 			}
