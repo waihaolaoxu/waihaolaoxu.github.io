@@ -3,9 +3,5 @@
   "author": "qdlaoxu",
   "description": "",
   "language": "zh-hans",
-  "fontSettings": {
-    "theme": "white",
-    "family": "msyh",
-    "size": 2
-  }
+  "plugins": ["expandable-chapters"]
 }
