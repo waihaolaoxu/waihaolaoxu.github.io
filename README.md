@@ -1,2 +1,1 @@
-# waihaolaoxu.github.io
-移动端测试
+# github.loveqiao.com
