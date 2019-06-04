@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>GitBook 使用 · 前端老徐</title>
+        <title>GitBook 简介 · 前端老徐</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,6 +61,8 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="1.html" />
+    
     
 
     </head>
@@ -116,9 +118,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../react/antdesign.html">
+        <li class="chapter " data-level="1.2.1" data-path="../react/1.html">
             
-                <a href="../react/antdesign.html">
+                <a href="../react/1.html">
             
                     
                     AntDesign 应用
@@ -153,6 +155,19 @@
                 <a href="./">
             
                     
+                    GitBook 简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
                     GitBook 使用
             
                 </a>
@@ -180,9 +195,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../github/github_pages.html">
+        <li class="chapter " data-level="1.4.1" data-path="../github/1.html">
             
-                <a href="../github/github_pages.html">
+                <a href="../github/1.html">
             
                     
                     创建静态网站
@@ -228,7 +243,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >GitBook 使用</a>
+        <a href=".." >GitBook 简介</a>
     </h1>
 </div>
 
@@ -243,65 +258,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="gitbook-&#x4F7F;&#x7528;&#x4ECB;&#x7ECD;">GitBook &#x4F7F;&#x7528;&#x4ECB;&#x7ECD;</h1>
-<p>&#x9996;&#x5148;&#x9700;&#x8981;&#x4F60;&#x7684;&#x7CFB;&#x7EDF;&#x6709;node&#x73AF;&#x5883;&#x53CA;npm&#x5DE5;&#x5177;</p>
-<h2 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h2>
-<p>&#x6267;&#x884C;&#x5B89;&#x88C5;&#x547D;&#x4EE4; </p>
-<pre><code>npm install gitbook-cli -g
-</code></pre><p>&#x9A8C;&#x8BC1;&#x5B89;&#x88C5;&#x6210;&#x529F;</p>
-<pre><code>$ gitbook -V
-CLI version: 2.3.2
-GitBook version: 3.2.3
-</code></pre><h2 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;">&#x5E38;&#x7528;&#x547D;&#x4EE4;</h2>
-<pre><code>gitbook init // &#x521D;&#x59CB;&#x5316;gitbook&#x9879;&#x76EE;
-gitbook serve // &#x542F;&#x52A8;&#x9884;&#x89C8;&#x6A21;&#x5F0F;
-gitbook build // &#x751F;&#x6210;html
-</code></pre><h3 id="&#x6240;&#x6709;&#x547D;&#x4EE4;">&#x6240;&#x6709;&#x547D;&#x4EE4;</h3>
-<pre><code>    build [book] [output]       build a book
-    --log                   Minimum log level to display (Default is info; Values are debug, info, warn, error, disabled)
-    --format                Format to build to (Default is website; Values are website, json, ebook)
-    --[no-]timing           Print timing debug information (Default is false)
-
-serve [book] [output]       serve the book as a website for testing
-    --port                  Port for server to listen on (Default is 4000)
-    --lrport                Port for livereload server to listen on (Default is 35729)
-    --[no-]watch            Enable file watcher and live reloading (Default is true)
-    --[no-]live             Enable live reloading (Default is true)
-    --[no-]open             Enable opening book in browser (Default is false)
-    --browser               Specify browser for opening book (Default is )
-    --log                   Minimum log level to display (Default is info; Values are debug, info, warn, error, disabled)
-    --format                Format to build to (Default is website; Values are website, json, ebook)
-
-install [book]              install all plugins dependencies
-    --log                   Minimum log level to display (Default is info; Values are debug, info, warn, error, disabled)
-
-parse [book]                parse and print debug information about a book
-    --log                   Minimum log level to display (Default is info; Values are debug, info, warn, error, disabled)
-
-init [book]                 setup and create files for chapters
-    --log                   Minimum log level to display (Default is info; Values are debug, info, warn, error, disabled)
-
-pdf [book] [output]         build a book into an ebook file
-    --log                   Minimum log level to display (Default is info; Values are debug, info, warn, error, disabled)
-
-epub [book] [output]        build a book into an ebook file
-    --log                   Minimum log level to display (Default is info; Values are debug, info, warn, error, disabled)
-
-mobi [book] [output]        build a book into an ebook file
-    --log                   Minimum log level to display (Default is info; Values are debug, info, warn, error, disabled)
-</code></pre><h2 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h2>
-<p>&#x53EF;&#x4EE5;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x521B;&#x5EFA; book.json &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4E0B;&#x9762;&#x5217;&#x4E3E;&#x5E38;&#x7528;&#x5B57;&#x6BB5;&#x914D;&#x7F6E;&#xFF1A;</p>
-<pre><code>{
-  &quot;title&quot;: &quot;&#x4E66;&#x672C;&#x7684;&#x6807;&#x9898;&quot;,
-  &quot;author&quot;: &quot;&#x4F5C;&#x8005;&quot;,
-  &quot;description&quot;: &quot;&#x63CF;&#x8FF0;&quot;,
-  &quot;language&quot;: &quot;zh-hans&quot;,
-  &quot;plugins&quot;: [&quot;expandable-chapters&quot;]
-}
-</code></pre><p><strong>language</strong>  Gitbook&#x4F7F;&#x7528;&#x7684;&#x8BED;&#x8A00;, &#x53EF;&#x9009;&#x7684;&#x8BED;&#x8A00;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>en, ar, bn, cs, de, en, es, fa, fi, fr, he, it, ja, ko, no, pl, pt, ro, ru, sv, uk, vi, zh-hans, zh-tw
-</code></pre><h2 id="&#x95EE;&#x9898;">&#x95EE;&#x9898;</h2>
-<p>windows &#x4E0B;&#x6267;&#x884C; gitbook serve &#x5F53;&#x6587;&#x4EF6;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x540E;&#x670D;&#x52A1;&#x76F4;&#x63A5;&#x6302;&#x6389;&#x5BFC;&#x81F4;&#x4E0D;&#x80FD;&#x5B9E;&#x65F6;&#x9884;&#x89C8;&#xFF0C;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x662F;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x540E; &#x624B;&#x52A8;&#x5220;&#x9664;&#x76EE;&#x5F55;&#x4E0B;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684; _book&#x6587;&#x4EF6;&#x5939;&#x5373;&#x53EF; </p>
+                                <h1 id="gitbook-&#x7B80;&#x4ECB;">GitBook &#x7B80;&#x4ECB;</h1>
+<p>&#xA0; &#xA0; &#xA0; &#xA0;GitBook &#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; Node.js &#x7684;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#xFF0C;&#x652F;&#x6301; Markdown &#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x8F93;&#x51FA; HTML&#x3001;PDF&#x3001;eBook &#x7B49;&#x683C;&#x5F0F;&#x7684;&#x7535;&#x5B50;&#x4E66;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x66F4;&#x559C;&#x6B22;&#x628A; GitBook &#x5B9A;&#x4E49;&#x4E3A;&#x6587;&#x6863;&#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x5DE5;&#x5177;&#x3002;</p>
+<h2 id="gitbook-&#x4E0E;-git">Gitbook &#x4E0E; Git</h2>
+<p>&#xA0; &#xA0; &#xA0; &#xA0;Git &#x662F;&#x76EE;&#x524D;&#x4E16;&#x754C;&#x4E0A;&#x6700;&#x5148;&#x8FDB;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;&#xFF0C;&#x548B;&#x4E00;&#x770B; GitBook &#x7684;&#x540D;&#x5B57;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x8BA4;&#x4E3A;&#x5B83;&#x662F;&#x5173;&#x4E8E; Git &#x7684;&#x4E00;&#x672C;&#x4E66;&#x3002;&#x800C;&#x5F53;&#x4F60;&#x6709;&#x6240;&#x4E86;&#x89E3;&#x4E4B;&#x540E;&#xFF0C;&#x4F60;&#x4E5F;&#x8BB8;&#x4F1A;&#x8BA4;&#x4E3A;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; Git &#x6784;&#x5EFA;&#x7535;&#x5B50;&#x4E66;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x5176;&#x5B9E;&#x4E0D;&#x7136;&#xFF0C;GitBook &#x4E0E; Git &#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5C31;&#x50CF;&#x96F7;&#x950B;&#x5854;&#x548C;&#x96F7;&#x950B;&#x90A3;&#x6837;&#xFF0C;&#x6CA1;&#x6709;&#x4E00;&#x70B9;&#x5173;&#x7CFB;&#xFF01;</p>
+<p>&#xA0; &#xA0; &#xA0; &#xA0;GitBook &#x4E0E; Markdown &#x548C; Git &#x606F;&#x606F;&#x76F8;&#x5173;&#xFF0C;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x5C06;&#x5B83;&#x4EEC;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#x4F7F;&#x7528;&#xFF0C;&#x624D;&#x80FD;&#x5C06;&#x5B83;&#x4EEC;&#x7684;&#x5A01;&#x529B;&#x53D1;&#x6325;&#x5230;&#x6781;&#x81F4;&#xFF01;&#x56E0;&#x6B64;&#xFF0C;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4F1A;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684; Markdown &#x7F16;&#x8F91;&#x5DE5;&#x5177;&#x4EE5;&#x83B7;&#x5F97;&#x98DE;&#x4E00;&#x822C;&#x7684;&#x5199;&#x4F5C;&#x4F53;&#x9A8C;&#xFF1B;&#x4F7F;&#x7528; GitBook &#x7BA1;&#x7406;&#x6587;&#x6863;&#xFF0C;&#x9884;&#x89C8;&#x3001;&#x5236;&#x4F5C;&#x7535;&#x5B50;&#x4E66;&#xFF1B;&#x540C;&#x65F6;&#x901A;&#x8FC7; Git &#x7BA1;&#x7406;&#x4E66;&#x7C4D;&#x5185;&#x5BB9;&#x7684;&#x53D8;&#x66F4;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x6258;&#x7BA1;&#x5230;&#x4E91;&#x7AEF;&#xFF08;&#x6BD4;&#x5982; GitHub&#x3001;GitLab&#x3001;&#x7801;&#x4E91;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x81EA;&#x5DF1;&#x642D;&#x5EFA;&#x7684; Git &#x670D;&#x52A1;&#x5668;&#xFF09;&#xFF0C;&#x5B9E;&#x73B0;&#x591A;&#x4EBA;&#x534F;&#x4F5C;&#x3002;</p>
+<h2 id="gitbook-&#x4F18;&#x52BF;">Gitbook &#x4F18;&#x52BF;</h2>
+<p>&#x901A;&#x5E38;&#xFF0C;&#x6211;&#x4EEC;&#x6700;&#x5F00;&#x59CB;&#x5B66;&#x4E60;&#x548C;&#x4F7F;&#x7528;&#x7684;&#x529E;&#x516C;&#x8F6F;&#x4EF6;&#x5C31;&#x662F; Word &#x548C; Excel&#x3002;&#x8FD9;&#x91CC;&#x4E0D;&#x662F;&#x8BF4;&#x5B83;&#x4EEC;&#x5DF2;&#x7ECF;&#x8FC7;&#x65F6;&#x4E86;&#xFF0C;&#x4E0D;&#x662F;&#x8BF4; GitBook &#x80FD;&#x591F;&#x66FF;&#x4EE3;&#x5B83;&#x4EEC;&#x3002;</p>
+<p>&#x76F8;&#x53CD;&#xFF0C;Microsoft &#x7684;&#x529E;&#x516C;&#x8F6F;&#x4EF6;&#x5F88;&#x4F18;&#x79C0;&#x5E76;&#x4E14;&#x7ECF;&#x53D7;&#x4E86;&#x65F6;&#x95F4;&#x7684;&#x8003;&#x9A8C;&#xFF0C;&#x4F46;&#x662F;&#x6B63;&#x56E0;&#x4E3A;&#x5B83;&#x529F;&#x80FD;&#x4E30;&#x5BCC;&#xFF0C;&#x5BFC;&#x81F4;&#x7A0D;&#x663E;&#x81C3;&#x80BF;&#xFF08;&#x4E8C;&#x516B;&#x5B9A;&#x5F8B;&#xFF1A;80%&#x7684;&#x65F6;&#x95F4;&#x91CC;&#x6211;&#x4EEC;&#x53EA;&#x4F1A;&#x7528;&#x5230;20%&#x7684;&#x529F;&#x80FD;&#xFF09;&#xFF0C;&#x540C;&#x65F6;&#x56E0;&#x4E3A;&#x5B83;&#x5B58;&#x5728;&#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;&#x4FDD;&#x5B58;&#x3001;&#x8F6F;&#x4EF6;&#x4E0D;&#x517C;&#x5BB9;&#x3001;&#x683C;&#x5F0F;&#x4E0D;&#x517C;&#x5BB9;&#x3001;&#x96BE;&#x4EE5;&#x8FDB;&#x884C;&#x7248;&#x672C;&#x63A7;&#x5236;&#x3001;&#x96BE;&#x4EE5;&#x5B9E;&#x65F6;&#x5206;&#x4EAB;&#x9884;&#x89C8;&#x3001;&#x96BE;&#x4EE5;&#x591A;&#x4EBA;&#x534F;&#x4F5C;&#x7B49;&#x77ED;&#x677F;&#x3002;&#x800C;&#x8FD9;&#x6070;&#x6070;&#x662F; GitBook + Markdown + Git &#x7684;&#x957F;&#x5904;&#x3002;</p>
+<p>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;GitBook + Markdown + Git &#x5E26;&#x6765;&#x7684;&#x597D;&#x5904;&#x6709;&#xFF1A;</p>
+<ol>
+<li>&#x8BED;&#x6CD5;&#x7B80;&#x5355;  </li>
+<li>&#x517C;&#x5BB9;&#x6027;&#x5F3A;  </li>
+<li>&#x5BFC;&#x51FA;&#x65B9;&#x4FBF;  </li>
+<li>&#x4E13;&#x6CE8;&#x5185;&#x5BB9;  </li>
+<li>&#x56E2;&#x961F;&#x534F;&#x4F5C; </li>
+</ol>
+<hr>
+<p>2019/6/4 17:10:46 </p>
 
                                 
                                 </section>
@@ -330,6 +304,10 @@ mobi [book] [output]        build a book into an ebook file
             
                 
                 
+                <a href="1.html" class="navigation navigation-next navigation-unique" aria-label="Next page: GitBook 使用">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
             
         
     </div>
@@ -337,7 +315,7 @@ mobi [book] [output]        build a book into an ebook file
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GitBook 使用","level":"1.3.1","depth":2,"next":{"title":"github","level":"1.4","depth":1,"ref":"","articles":[{"title":"创建静态网站","level":"1.4.1","depth":2,"path":"github/github_pages.md","ref":"github/github_pages.md","articles":[]}]},"previous":{"title":"gitbook","level":"1.3","depth":1,"ref":"","articles":[{"title":"GitBook 使用","level":"1.3.1","depth":2,"path":"gitbook/README.md","ref":"gitbook/README.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"qdlaoxu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"前端老徐","language":"zh-hans","gitbook":"*","description":""},"file":{"path":"gitbook/README.md","mtime":"2019-05-23T07:48:15.608Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-27T03:52:27.148Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GitBook 简介","level":"1.3.1","depth":2,"next":{"title":"GitBook 使用","level":"1.3.2","depth":2,"path":"gitbook/1.md","ref":"gitbook/1.md","articles":[]},"previous":{"title":"gitbook","level":"1.3","depth":1,"ref":"","articles":[{"title":"GitBook 简介","level":"1.3.1","depth":2,"path":"gitbook/README.md","ref":"gitbook/README.md","articles":[]},{"title":"GitBook 使用","level":"1.3.2","depth":2,"path":"gitbook/1.md","ref":"gitbook/1.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"qdlaoxu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"前端老徐","language":"zh-hans","gitbook":"*","description":""},"file":{"path":"gitbook/README.md","mtime":"2019-06-04T09:10:47.257Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-04T09:17:21.192Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
