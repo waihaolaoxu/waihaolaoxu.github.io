@@ -2,7 +2,7 @@
  * @Author: qdlaoxu
  * @Date:   2019-06-06 09:50:01
  * @Last Modified by:   qdlaoxu
- * @Last Modified time: 2019-06-06 14:53:43
+ * @Last Modified time: 2019-06-06 15:22:44
  */
 var fs = require('fs');
 var join = require('path').join;
@@ -21,7 +21,8 @@ function getJsonFiles(jsonPath) {
         findJsonFile(fPath);
       }
       if (stat.isFile() === true) {
-        if(fPath.indexOf("\\") > 0){
+        fPath = fPath.replace(/\\/g,'/');
+        if(fPath.indexOf("/") > 0){
           jsonFiles.push(fPath);
         }
       }
@@ -29,7 +30,7 @@ function getJsonFiles(jsonPath) {
   }
   findJsonFile(jsonPath);
   jsonFiles.map(dir => {
-    let arr = dir.split(/\\/);
+    let arr = dir.split('/');
     var data = fs.readFileSync(dir);
     let title = data.toString().split('\n')[0].replace('#','').trim();
     let groupName = arr[0];
