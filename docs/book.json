@@ -3,5 +3,11 @@
   "author": "qdlaoxu",
   "description": "",
   "language": "zh-hans",
-  "plugins": ["expandable-chapters"]
+  "plugins": ["expandable-chapters","graphviz-and-plant-uml"],
+  "pluginsConfig": {
+    "graphviz-and-plant-uml": {
+      "Render": "PlantUMLServer",
+      "Server": "http://www.plantuml.com/plantuml"
+    }
+  }
 }
