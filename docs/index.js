@@ -2,7 +2,7 @@
  * @Author: qdlaoxu
  * @Date:   2019-06-06 09:50:01
  * @Last Modified by:   qdlaoxu
- * @Last Modified time: 2019-06-06 15:22:44
+ * @Last Modified time: 2019-06-06 15:32:44
  */
 var fs = require('fs');
 var join = require('path').join;
@@ -20,7 +20,7 @@ function getJsonFiles(jsonPath) {
       if (stat.isDirectory() === true) {
         findJsonFile(fPath);
       }
-      if (stat.isFile() === true) {
+      if (stat.isFile() === true && /md$/.test(item)) {
         fPath = fPath.replace(/\\/g,'/');
         if(fPath.indexOf("/") > 0){
           jsonFiles.push(fPath);
