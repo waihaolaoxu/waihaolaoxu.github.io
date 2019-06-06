@@ -2,7 +2,7 @@
  * @Author: qdlaoxu
  * @Date:   2019-06-06 09:50:01
  * @Last Modified by:   qdlaoxu
- * @Last Modified time: 2019-06-06 15:32:44
+ * @Last Modified time: 2019-06-06 16:23:40
  */
 var fs = require('fs');
 var join = require('path').join;
@@ -21,6 +21,9 @@ function getJsonFiles(jsonPath) {
         findJsonFile(fPath);
       }
       if (stat.isFile() === true && /md$/.test(item)) {
+        if(/^(_book|node_modules)/.test(fPath)){
+          return;
+        }
         fPath = fPath.replace(/\\/g,'/');
         if(fPath.indexOf("/") > 0){
           jsonFiles.push(fPath);
